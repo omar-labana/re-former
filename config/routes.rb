@@ -1,5 +1,7 @@
-Rails.application.routes.draw do
-  root "user#index"
+# frozen_string_literal: true
 
-  resources :users, only: [:new, :create, :edit, :update]
+Rails.application.routes.draw do
+  root 'user#index'
+
+  resources :users, only: %i[new create edit update]
 end
