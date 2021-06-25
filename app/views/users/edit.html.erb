@@ -1,0 +1,17 @@
+<%= form_with(model: @user, local: true) do |f| %>
+    <% if @user.errors.any? %>
+      <div>
+        <p><%= pluralize(@user.errors.count, "error") %> prohibited this action from being saved:</p>
+        <% @user.errors.full_messages.each do |message| %>
+          <%= message %>
+         <% end %>
+      </div>
+    <% end %> 
+    <%= f.label :username, "Your username" %>
+    <%= f.text_field :username, value: @user.username %>
+    <%= f.label :email %>
+    <%= f.email_field :email, placeholder: 'francisrules@francis.com' %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.submit %>
+<% end %>
